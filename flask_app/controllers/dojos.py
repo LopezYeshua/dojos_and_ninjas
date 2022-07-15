@@ -10,7 +10,7 @@ def index():
 def createDojo():
     print(request.form)
     Dojo.save(request.form)
-    return redirect('/')
+    return redirect('/dojo/show')
 
 @app.route('/dojo/show/<int:id>')
 def show(id):

@@ -7,7 +7,7 @@ from flask_app.models.dojo import Dojo
 def createNinja():
     print(request.form)
     Ninja.save(request.form)
-    return redirect('/')
+    return redirect('/dojo/show/' + request.form['dojo_id'])
 
 @app.route('/new_ninja')
 def newNinja():
