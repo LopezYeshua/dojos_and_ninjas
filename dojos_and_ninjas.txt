@@ -1,0 +1,32 @@
+Query: Create 3 new dojos
+INSERT INTO dojos (name) VALUE ('Burbank'), ('San Jose'), ('Chicago');
+
+Query: Delete the 3 dojos you just created
+SET SQL_SAFE_UPDATES = 0;
+DELETE FROM dojos;
+
+Query: Create 3 more dojos
+INSERT INTO dojos (name) VALUE ('New York'), ('Washingtion'), ('Santa Monica');
+
+Query: Create 3 ninjas that belong to the first dojo
+INSERT INTO ninjas (first_name, Last_name, age, dojo_id) VALUES ('Yeshua', 'Lopez', 22, 1), ('Mom', 'Cruz', 30, 1), ('Dad', 'Lopez', 30, 1);
+
+Query: Create 3 ninjas that belong to the second dojo
+INSERT INTO ninjas (first_name, Last_name, age, dojo_id) VALUES ('Brandon', 'Lopez', 22, 2), ('Eddy', 'Cruz', 30, 2), ('Andy', 'Lopez', 30, 2);
+
+Query: Create 3 ninjas that belong to the third dojo
+INSERT INTO ninjas (first_name, Last_name, age, dojo_id) VALUES ('Ken', 'Lopez', 22, 3), ('Jordan', 'Cruz', 30, 3), ('Jerry', 'Lopez', 30, 3);
+
+Query: Retrieve all the ninjas from the first dojo
+SELECT * FROM ninjas
+LIMIT 1;
+
+Query: Retrieve all the ninjas from the last dojo
+SELECT * FROM ninjas
+ORDER BY id DESC
+LIMIT 1;
+
+Query: Retrieve the last ninja's dojo
+SELECT * FROM dojos WHERE id = (SELECT dojo_id FROM ninjas ORDER BY id DESC LIMIT 1);
+
+Submit your .txt file that contains all the queries you ran in the shell
